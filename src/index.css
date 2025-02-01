@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --near-white: hsl(0, 0%, 98%);
+    --medium-gray: hsl(0, 0%, 41%);
+    --near-black: hsl(0, 0%, 8%);
+
+    --page-background: var(--near-white);
+    --page-padding: 36px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Epilogue", serif;
+    font-weight: 500;
+}
+
+body {
+    position: relative;
+    background: var(--near-white);
+    color: var(--near-black);
+}
+
+p {
+    font-size: 18px;
+    color: var(--medium-gray)
+}
+
+h1.titleSize {
+    font-size: 76px;
+    font-weight: 700;
+}
+
+button {
+    color: var(--medium-gray);
+    background: none;
+    border-radius: 16px;
+    border: none;
+    padding: 1em 1.5em;
+    font-size: 18px;
+    cursor: pointer;
+    transition-duration: 0.25s;
+}
+
+section {
+    padding: 100px 188px;
+    padding-top: 160px;
+}
+
+.section-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+
+@media screen and (max-width: 1349px) {
+    h1.titleSize {
+        font-size: 60px;
+    }
+}
+
+@media screen and (max-width: 1269px) {
+    section {
+        padding: 100px 120px;
+    }
+}
+
+@media screen and (max-width: 1138px) {
+    section {
+        padding: 100px 100px;
+    }
+}
+
+@media screen and (max-width: 799px) {
+    section {
+        padding: 100px 64px;
+    }
+}
+
+@media screen and (max-width: 704px) {
+    h1.titleSize {
+        font-size: 48px;
+    }
+
+    section {
+        padding: var(--page-padding);
+    }
+}
+
+@media screen and (max-width: 535px) {
+    :root {
+        --page-padding: 16px;
+    }
+}
+
+@media screen and (max-width: 496px) {
+    h1.titleSize {
+        font-size: 44px;
+    }
+}
+
+@media screen and (max-width: 455px) {
+    h1.titleSize {
+        font-size: 36px;
+    }
+}

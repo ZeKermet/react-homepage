@@ -1,0 +1,253 @@
+.pageHeader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    --font-color: var(--medium-gray);
+    --padding: 40px;
+    width: 100%;
+    display: flex;
+    gap: 72px;
+    padding: 28px var(--padding);
+    align-items: center;
+    color: var(--font-color);
+    z-index: 100;
+}
+
+.logo {
+    height: 32px;
+}
+.logo > img {
+    height: 100%;
+    object-fit: contain;
+}
+
+
+.headerRight {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: -8px;
+    width: 100%;
+}
+
+.headerRightBackground {
+    background: transparent;
+    width: 100%;
+}
+
+.navbar {
+    display: flex;
+    gap: var(--padding);
+    align-items: center;
+    background: var(--page-background);
+}
+
+.navlink {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.navlink > * {
+    cursor: pointer;
+}
+.navlink .dropArrow {
+    width: 12px;
+    object-fit: contain;
+    transition-duration: 0.25s;
+}
+
+.navlink > .navlinkText {
+    transition-duration: 0.25s;
+    padding-right: 8px;
+}
+.navlink:hover > p,
+.navlink.dropdown.opened > p,
+.navlink.dropdown.opened > .dropArrow {
+    color: var(--near-black);
+}
+.navlink.dropdown.opened > .dropArrow {
+    transform: rotate(180deg);
+}
+
+.navlink.dropdown .dropdownLinksContainer {
+    position: absolute;
+    top: calc(100%);
+    z-index: 2;
+    width: max-content;
+    background: transparent;
+    display: none;
+    padding-top: 28px;
+}
+
+.dropdownLinksContainer > div {
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background: var(--page-background);
+    cursor: default;
+}
+
+.navlink.dropdown.opened .dropdownLinksContainer {
+    display: block;
+    overflow: hidden;
+}
+.navlink.dropdown:nth-child(1) .dropdownLinksContainer {
+    right: 0;
+}
+.navlink.dropdown:nth-child(2) .dropdownLinksContainer {
+    left: 0;
+}
+
+
+.dropdownLink {
+    display: flex;
+    gap: 18px;
+    align-items: center; 
+}
+
+.dropdownLink > img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+
+.dropdownLink > p {
+    cursor: pointer;
+}
+
+.headerButtons {
+    margin-left: auto;
+    display: flex;
+    gap: calc(var(--padding) / 2);
+}
+.headerButtons .loginBtn {
+    border: none;
+}
+.headerButtons .registerBtn {
+    border: 1px solid var(--medium-gray);
+}
+
+.headerButtons button:hover {
+    color: var(--near-black);
+}
+
+.headerButtons .registerBtn:hover {
+    border-color: var(--near-black);
+}
+
+.menuBtn,
+.closeMenuBtn {
+    display: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1041px) {
+    .pageHeader {
+        justify-content: space-between;
+        padding-top: 36px;
+    }
+    .menuBtn,
+    .closeMenuBtn {
+        display: block;
+    }
+
+    .closeMenuBtn {
+        display: block;
+        width: 26px;
+        height: 26px;
+        object-fit: contain;
+        align-self: last baseline;
+    }
+
+    .headerRightBackground {
+        position: fixed;
+        width: 0%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        right: 0px;
+        top: 0;
+        visibility: 0;
+        opacity: 0;
+        z-index: -100;
+        transition-duration: 0.25s;
+    }
+    .headerRightBackground.opened {
+        visibility: visible;
+        opacity: 1;
+        z-index: 100;
+        width: 100%;
+    }
+
+    .headerRight {
+        position: fixed;
+        right: 0px;
+        top: 0;
+        height: 102vh;
+        flex-direction: column;
+        background: var(--page-background);
+        padding: var(--padding);
+        align-items: normal;
+        justify-content: start;
+        gap: var(--padding);
+        width: 300px;
+        max-width: 60vw;
+        transition-duration: 0.25s;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: normal;
+        gap: 40px;
+    }
+
+    .navlink.dropdown {
+        flex-wrap: wrap;
+    }
+
+    .navlink.dropdown .dropdownLinksContainer {
+        position: static;
+        z-index: 1;
+        padding: 0;
+        left: 0;
+        width: 100%;
+    }
+    
+    .dropdownLinksContainer > div {
+        box-shadow: none;
+        padding-top: 32px;
+        padding-bottom: 0px;
+        gap: 28px;
+    }
+
+    .headerButtons {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .headerButtons > button {
+        width: 100%;
+    }
+}
+
+
+@media screen and (max-width: 535px) {
+    .pageHeader {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    .headerRight {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .headerRight {
+        min-width: 60vw;
+        max-width: 80vw;
+    }
+}
