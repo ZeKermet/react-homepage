@@ -92,7 +92,6 @@
 
 .navlink.dropdown.opened .dropdownLinksContainer {
     display: block;
-    overflow: hidden;
 }
 .navlink.dropdown:nth-child(1) .dropdownLinksContainer {
     right: 0;
